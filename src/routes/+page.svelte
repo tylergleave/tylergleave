@@ -2,4 +2,4 @@
 <title>Tyler Gleave | Ogden, UT-based web developer, pilot, and beer enthusiast</title>
 </svelte:head>
 
-<h1>Home</h1>
+<div style="width:100%; height: 50px; background: white;"></div>
