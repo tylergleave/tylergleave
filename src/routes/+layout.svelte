@@ -3,26 +3,29 @@
 </script>
 
 
-<nav class="navbar mb-5">
-  <div class="container justify-end">
-    <div class="">
-      <ul class="space-x-6">
-        <li class="inline-block">
-          <a class="nav-link active" href="/">Home</a>
+
+
+<div class="navbar bg-base-100">
+    <div class="flex-1">
+      <a href="/" class="normal-case text-xl">Tyler Gleave</a>
+    </div>
+    <div class="flex-none">
+      <ul class="menu menu-horizontal px-1">
+        <li>
+            <a href="/">Home</a>
         </li>
-        <li class="inline-block">
-          <a class="nav-link" href="/portfolio">Portfolio</a>
+        <li>
+            <a href="/portfolio">Portfolio</a>
         </li>
-        <li class="inline-block">
-          <a class="nav-link" href="/about">About</a>
+        <li>
+            <a href="/about">About Me</a>
         </li>
-        <li class="inline-block">
-          <a class="nav-link" href="/contact">Contact Me</a>
+        <li>
+            <a href="/contact">Contact Me</a>
         </li>
       </ul>
     </div>
   </div>
-</nav>
 
 <main>
     <slot />
