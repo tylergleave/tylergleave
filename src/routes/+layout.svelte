@@ -1,9 +1,7 @@
 <script>
   import "../app.css";
+  import { page } from '$app/stores';   
 </script>
-
-
-
 
 <div class="navbar bg-base-100">
     <div class="flex-1">
@@ -12,20 +10,20 @@
     <div class="flex-none">
       <ul class="menu menu-horizontal px-1">
         <li>
-            <a href="/">Home</a>
+            <a class:active={$page.url.pathname==='/'} href="/">Home</a>
         </li>
         <li>
-            <a href="/portfolio">Portfolio</a>
+            <a class:active={$page.url.pathname==='/portfolio'} href="/portfolio">Portfolio</a>
         </li>
         <li>
-            <a href="/about">About Me</a>
+            <a class:active={$page.url.pathname==='/about'} href="/about">About Me</a>
         </li>
         <li>
-            <a href="/contact">Contact Me</a>
+            <a class:active={$page.url.pathname==='/contact'} href="/contact">Contact Me</a>
         </li>
       </ul>
     </div>
-  </div>
+</div>
 
 <main>
     <slot />
