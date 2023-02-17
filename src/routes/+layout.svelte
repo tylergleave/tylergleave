@@ -3,7 +3,7 @@
   import { page } from '$app/stores';   
 </script>
 
-<div class="navbar bg-base-100">
+<div class="navbar container my-5">
     <div class="flex-1">
       <a href="/" class="normal-case text-xl">Tyler Gleave</a>
     </div>
