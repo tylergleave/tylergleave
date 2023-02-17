@@ -10,9 +10,6 @@
     <div class="flex-none">
       <ul class="menu menu-horizontal px-1">
         <li>
-            <a class:active={$page.url.pathname==='/'} href="/">Home</a>
-        </li>
-        <li>
             <a class:active={$page.url.pathname==='/portfolio'} href="/portfolio">Portfolio</a>
         </li>
         <li>
@@ -30,7 +27,7 @@
 </main>
 
 <footer>
-  <div class="container text-center mx-auto">
+  <div class="container text-center mx-auto mt-10">
     <div class="divider mb-7">
       <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" class="bi bi-chevron-double-down" viewBox="0 0 16 16">
         <path fill-rule="evenodd" d="M1.646 6.646a.5.5 0 0 1 .708 0L8 12.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
@@ -48,9 +45,9 @@
       </svg>
     </a>
   </div>
-  <div class="mb-3">
+  <div class="mb-7">
     <div class="text-center">
-      <span class="text-muted small">© Tyler Gleave {new Date().getFullYear() }</span>
+      <span class="text-muted text-sm">© Tyler Gleave {new Date().getFullYear() }</span>
     </div>
   </div>
 </footer>
