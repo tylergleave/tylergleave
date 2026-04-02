@@ -12,9 +12,9 @@ export const projects = [
 
 The most critical feature is the ability for pilots to submit reports about the condition of airstrips they visit. Users can rate the condition and safety level of different attributes of each airstrip, and can attach pictures from their visit.
 
-The airstrip map geographically plots nearly 200 airstrips using the Bing Maps API. Each dot's color represents the ownership, open/closed status, and safety information about that strip. Users can hover (or tap on mobile) to get a quick overview of any airstrip.
+The airstrip map geographically plots nearly 200 airstrips using the Google Maps API. Each dot's color represents the ownership, open/closed status, and safety information about that strip. Users can hover (or tap on mobile) to get a quick overview of any airstrip.
 
-Users can also access detailed information for each airstrip including runway dimensions and orientation, field elevation, appropriate radio frequencies, and a brief description of the airstrip and surrounding area. Each detail page also includes a VFR sectional chart and a Bing Maps satellite view.`,
+Users can also access detailed information for each airstrip including runway dimensions and orientation, field elevation, appropriate radio frequencies, and a brief description of the airstrip and surrounding area. Each detail page also includes a VFR sectional chart and a Google Maps satellite view.`,
 		stats: [
 			{ value: '1,100+', label: 'Registered Users' },
 			{ value: '400+', label: 'Airstrip Reports' },
@@ -29,7 +29,7 @@ Users can also access detailed information for each airstrip including runway di
 			'Email notifications and social features',
 			'VFR sectional charts and satellite views per airstrip'
 		],
-		tags: ['Laravel 9.x', 'MySQL', 'Bing Maps API', 'Stripe', 'PayPal', 'VPS-hosted'],
+		tags: ['Laravel 9.x', 'MySQL', 'Google Maps API', 'Stripe', 'PayPal', 'VPS-hosted'],
 		images: [
 			{ src: '/images/user_reports.jpg', alt: 'UBCP airstrip report' },
 			{ src: '/images/airstrip_map.jpg', alt: 'UBCP airstrip map' },
@@ -66,7 +66,7 @@ Bing Maps has native support for overlaying GPX and XML files directly onto a ma
 			'No database — files written straight to disk for maximum speed',
 			'Domain, VPS, SSL, CI/CD, and full app shipped in a single day'
 		],
-		tags: ['Laravel 7.x', 'Bing Maps API', 'GPX/XML', 'HTML5 Geolocation', 'VPS'],
+		tags: ['Laravel 7.x', 'Bing Maps API', 'GPX/XML', 'HTML5 Geolocation', 'VPS-hosted'],
 		images: []
 	},
 	{
@@ -126,7 +126,34 @@ Volunteer coordination runs through a Signal group chat, keeping things lightwei
 			'Embedded map and address for easy fridge access',
 			'Donation flow for financial contributions'
 		],
-		tags: ['SvelteKit 5', 'Vercel', 'CloudFlare', 'MailGun API'],
+		tags: ['SvelteKit 5', 'Vercel-hosted', 'CloudFlare', 'MailGun API'],
 		images: []
+	},
+	{
+		slug: 'high-country-bbq',
+		name: "Mike's High Country BBQ",
+		url: 'https://www.highcountrybbq.co',
+		displayUrl: 'highcountrybbq.co',
+		heroImage: '/images/high_country_bbq_homepage.png',
+		heroAlt: "Mike's High Country BBQ — Colorado Springs",
+		summary:
+			'Website for a veteran-owned BBQ food truck in Colorado Springs. Slow-smoked meats, local hardwoods, and a full catering operation — built to bring in customers and bookings.',
+		description: `Mike's High Country BBQ is a veteran-owned food truck out of Colorado Springs, Colorado. Mike — a US Army veteran — brings the same dedication and attention to detail he carried in the military to every rack of ribs and brisket that comes off his smoker. Slow-smoked with local hardwoods, no shortcuts, ever.
+
+The site is the truck's online home base: showcasing the menu, building credibility for the brand, and converting visitors into catering bookings. The catering page walks prospective clients through a three-step process — reach out, build a menu, show up and smoke — and covers the full range of events Mike's crew serves: corporate lunches, private parties, weddings, community fundraisers, and military and veteran events.
+
+Visitors can follow along on Instagram for current location and hours, or reach out directly to book the truck.`,
+		stats: [],
+		features: [
+			'Full menu showcase for the food truck',
+			'Dedicated catering page with event types and booking flow',
+			'Three-step catering process walkthrough',
+			'Instagram integration for location and hours updates',
+			'Contact form and phone number for catering inquiries'
+		],
+		tags: ['SvelteKit', 'Small Business', 'Food & Beverage'],
+		images: [
+			{ src: '/images/high_country_bbq_catering.png', alt: 'High Country BBQ catering page' }
+		]
 	}
 ];
