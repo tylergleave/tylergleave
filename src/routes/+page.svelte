@@ -20,17 +20,17 @@
 	<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </svelte:head>
 
-<!-- ─── Hero ─────────────────────────────────────────────── -->
+<!-- Hero -->
 <section class="border-b border-slate-200 bg-slate-50 px-6 py-24 text-center">
 	<div class="mx-auto max-w-3xl">
 		<p class="mb-3 text-sm font-medium uppercase tracking-widest text-slate-400">
-			Senior Web Developer
+			Web Developer &amp; Application Security Engineer
 		</p>
 		<h1 class="mb-6 text-5xl font-bold tracking-tight text-slate-900 sm:text-6xl">
 			Tyler Gleave
 		</h1>
 		<p class="mx-auto max-w-xl text-lg leading-relaxed text-slate-600">
-			Building full-stack web applications from Ogden, Utah — with 10+ years of experience
+			Building full-stack web applications from Ogden, Utah — with 15 years of experience
 			turning ideas into polished, maintainable software.
 		</p>
 		<div class="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
@@ -50,7 +50,7 @@
 	</div>
 </section>
 
-<!-- ─── About ──────────────────────────────────────────────── -->
+<!-- About -->
 <section id="about" class="px-6 py-20">
 	<div class="mx-auto max-w-5xl">
 		<div class="grid gap-12 md:grid-cols-2 md:items-center">
@@ -67,31 +67,36 @@
 					</div>
 				</div>
 				<p class="mb-4 text-base leading-relaxed text-slate-600">
-					I'm a senior web developer based in Ogden, Utah with over a decade of hands-on experience
-					building web applications. My roots are in PHP — particularly <strong class="text-slate-800"
-						>Laravel</strong
-					>
-					and <strong class="text-slate-800">CakePHP</strong> — and I've built everything from
-					community platforms to time-critical emergency tools.
+					I'm have been employed as web developer and application security engineer based in Ogden, Utah with
+					over a decade of hands-on experience building web applications. My roots are in PHP —
+					particularly Laravel and CakePHP.
+					I've built everything from community platforms to time-critical emergency tools.
 				</p>
 				<p class="mb-4 text-base leading-relaxed text-slate-600">
-					Beyond PHP, I'm fluent in <strong class="text-slate-800">Python</strong>,
-					<strong class="text-slate-800">SQL</strong>, and comfortable managing the
-					<strong class="text-slate-800">Linux</strong> server infrastructure that keeps it all running.
-					I care about writing code that's clean, maintainable, and built to last.
+					On the security side, I'm currently employed as an
+					Application Security Engineer, with hands-on
+					experience in web application penetration testing.
+					I believe my experience on the security side of the fence makes me
+					a better developer when it comes to writing secure code from the start.
 				</p>
+				<p class="mb-4 text-base leading-relaxed text-slate-600">
+					Beyond PHP, I'm comfortable with Python and I'm actively trying to build some applications in 
+					SvelteKit and Next.js to strengthen my knowledge with javascript frameworks as well.
+					I can manage Linux servers to host an application or database, or can manage serverless infrastructure. 
+				</p>
+				<p class="mb-4 text-base leading-relaxed text-slate-600">I care about writing code that's clean, maintainable, and secure.</p>
 				<p class="text-base leading-relaxed text-slate-600">
-					When I'm not at a keyboard, you'll find me flying airplanes, destroying strangers at
-					trivia night, or chasing down whatever new thing I've decided to learn this month.
+					When I'm not at a keyboard, you'll find me flying airplanes, riding motorcycles,
+					losing at bar trivia, or volunteering for <strong><a href="/projects/weber-fridge" class="underline">Weber Fridge</a></strong> community breakfasts.
 				</p>
 			</div>
 
 			<div class="rounded-xl border border-slate-200 bg-slate-50 p-8">
 				<h3 class="mb-5 text-sm font-semibold uppercase tracking-widest text-slate-400">
-					Tech Stack
+					Skills
 				</h3>
 				<div class="flex flex-wrap gap-2">
-					{#each ['PHP', 'Laravel', 'CakePHP', 'Python', 'MySQL', 'PostgreSQL', 'Linux', 'JavaScript', 'HTML/CSS', 'Git', 'REST APIs', 'SvelteKit'] as skill}
+					{#each ['PHP', 'Laravel', 'CakePHP', 'Python', 'MySQL', 'PostgreSQL', 'Linux', 'JavaScript', 'HTML/CSS', 'Git', 'REST APIs', 'SvelteKit', 'Web App Pentesting'] as skill}
 						<span
 							class="rounded-md border border-slate-200 bg-white px-3 py-1.5 text-sm font-medium text-slate-700 shadow-sm"
 						>
@@ -104,7 +109,7 @@
 	</div>
 </section>
 
-<!-- ─── Projects ──────────────────────────────────────────── -->
+<!-- Projects -->
 <section id="projects" class="border-t border-slate-200 bg-slate-50 px-6 py-20">
 	<div class="mx-auto max-w-5xl">
 		<div class="mb-12 text-center">
@@ -165,7 +170,7 @@
 	</div>
 </section>
 
-<!-- ─── Contact ───────────────────────────────────────────── -->
+<!-- Contact -->
 <section id="contact" class="border-t border-slate-200 px-6 py-20">
 	<div class="mx-auto max-w-2xl">
 		<div class="mb-10 text-center">
