@@ -1,27 +1,24 @@
 <script>
 	import { projects } from '$lib/projects.js';
+	import { enhance } from '$app/forms';
+	import { PUBLIC_TURNSTILE_SITE_KEY } from '$env/static/public';
 
-	// Contact form state
-	let formName = $state('');
-	let formEmail = $state('');
-	let formMessage = $state('');
-	let formStatus = $state('idle'); // idle | sending | sent | error
+	/** @type {import('./$types').ActionData} */
+	let { form } = $props();
 
-	async function handleSubmit(e) {
-		e.preventDefault();
-		formStatus = 'sending';
-		// Replace with Formspree, Netlify Forms, or a +page.server.js action in production
-		await new Promise((r) => setTimeout(r, 800));
-		formStatus = 'sent';
-	}
+	let submitting = $state(false);
 
 	function resetForm() {
-		formName = '';
-		formEmail = '';
-		formMessage = '';
-		formStatus = 'idle';
+		// Resetting via page navigation re-renders the form cleanly
+		// and resets the Turnstile widget automatically
+		window.location.hash = '#contact';
+		window.location.reload();
 	}
 </script>
+
+<svelte:head>
+	<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+</svelte:head>
 
 <!-- ─── Hero ─────────────────────────────────────────────── -->
 <section class="border-b border-slate-200 bg-slate-50 px-6 py-24 text-center">
@@ -178,7 +175,7 @@
 			</p>
 		</div>
 
-		{#if formStatus === 'sent'}
+		{#if form?.success}
 			<div class="rounded-xl border border-green-200 bg-green-50 p-8 text-center">
 				<svg
 					class="mx-auto mb-4 h-10 w-10 text-green-500"
@@ -203,14 +200,32 @@
 				</button>
 			</div>
 		{:else}
-			<form onsubmit={handleSubmit} class="space-y-5">
+			<form
+				method="POST"
+				action="?/contact"
+				class="space-y-5"
+				use:enhance={() => {
+					submitting = true;
+					return async ({ update }) => {
+						await update();
+						submitting = false;
+					};
+				}}
+			>
+				{#if form?.error}
+					<div class="rounded-md border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700">
+						{form.error}
+					</div>
+				{/if}
+
 				<div class="grid gap-5 sm:grid-cols-2">
 					<div>
 						<label for="name" class="mb-1.5 block text-sm font-medium text-slate-700">Name</label>
 						<input
 							id="name"
+							name="name"
 							type="text"
-							bind:value={formName}
+							value={form?.name ?? ''}
 							required
 							placeholder="Your name"
 							class="w-full rounded-md border border-slate-300 px-4 py-2.5 text-sm text-slate-900 placeholder:text-slate-400 focus:border-slate-500 focus:outline-none focus:ring-2 focus:ring-slate-200"
@@ -220,8 +235,9 @@
 						<label for="email" class="mb-1.5 block text-sm font-medium text-slate-700">Email</label>
 						<input
 							id="email"
+							name="email"
 							type="email"
-							bind:value={formEmail}
+							value={form?.email ?? ''}
 							required
 							placeholder="you@example.com"
 							class="w-full rounded-md border border-slate-300 px-4 py-2.5 text-sm text-slate-900 placeholder:text-slate-400 focus:border-slate-500 focus:outline-none focus:ring-2 focus:ring-slate-200"
@@ -229,22 +245,28 @@
 					</div>
 				</div>
 				<div>
-					<label for="message" class="mb-1.5 block text-sm font-medium text-slate-700">Message</label>
+					<label for="message" class="mb-1.5 block text-sm font-medium text-slate-700"
+						>Message</label
+					>
 					<textarea
 						id="message"
-						bind:value={formMessage}
+						name="message"
 						required
 						rows="5"
 						placeholder="What's on your mind?"
 						class="w-full resize-none rounded-md border border-slate-300 px-4 py-2.5 text-sm text-slate-900 placeholder:text-slate-400 focus:border-slate-500 focus:outline-none focus:ring-2 focus:ring-slate-200"
-					></textarea>
+					>{form?.message ?? ''}</textarea>
 				</div>
+
+				<!-- Cloudflare Turnstile widget -->
+				<div class="cf-turnstile" data-sitekey={PUBLIC_TURNSTILE_SITE_KEY}></div>
+
 				<button
 					type="submit"
-					disabled={formStatus === 'sending'}
+					disabled={submitting}
 					class="w-full rounded-md bg-slate-900 px-6 py-3 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-slate-700 disabled:cursor-not-allowed disabled:opacity-60"
 				>
-					{formStatus === 'sending' ? 'Sending…' : 'Send Message'}
+					{submitting ? 'Sending…' : 'Send Message'}
 				</button>
 				<p class="text-center text-xs text-slate-400">
 					Or email me directly at
