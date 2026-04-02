@@ -31,17 +31,26 @@
 		<!-- Header -->
 		<div class="mb-10">
 			<h1 class="mb-3 text-4xl font-bold tracking-tight text-slate-900">{project.name}</h1>
-			<a
-				href={project.url}
-				target="_blank"
-				rel="noopener noreferrer"
-				class="inline-flex items-center gap-1.5 text-sm text-slate-500 hover:text-slate-800 transition-colors"
-			>
-				<svg class="h-3.5 w-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-				</svg>
-				{project.displayUrl}
-			</a>
+			{#if project.url}
+				<a
+					href={project.url}
+					target="_blank"
+					rel="noopener noreferrer"
+					class="inline-flex items-center gap-1.5 text-sm text-slate-500 hover:text-slate-800 transition-colors"
+				>
+					<svg class="h-3.5 w-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+					</svg>
+					{project.displayUrl}
+				</a>
+			{:else}
+				<span class="inline-flex items-center gap-1.5 text-sm text-slate-400">
+					<svg class="h-3.5 w-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636" />
+					</svg>
+					{project.displayUrl} — domain expired
+				</span>
+			{/if}
 		</div>
 
 		<!-- Hero image -->
@@ -127,18 +136,25 @@
 			<!-- Sidebar -->
 			<div class="flex flex-col gap-8">
 
-				<!-- Visit site CTA -->
-				<a
-					href={project.url}
-					target="_blank"
-					rel="noopener noreferrer"
-					class="flex items-center justify-center gap-2 rounded-xl bg-slate-900 px-6 py-3.5 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-slate-700"
-				>
-					Visit {project.displayUrl}
-					<svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-					</svg>
-				</a>
+				<!-- Visit site CTA / expired notice -->
+				{#if project.url}
+					<a
+						href={project.url}
+						target="_blank"
+						rel="noopener noreferrer"
+						class="flex items-center justify-center gap-2 rounded-xl bg-slate-900 px-6 py-3.5 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-slate-700"
+					>
+						Visit {project.displayUrl}
+						<svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+						</svg>
+					</a>
+				{:else}
+					<div class="rounded-xl border border-slate-200 bg-slate-50 px-6 py-4 text-center">
+						<p class="text-sm font-medium text-slate-500">Domain expired</p>
+						<p class="mt-1 text-xs text-slate-400">{project.displayUrl} is no longer active</p>
+					</div>
+				{/if}
 
 				<!-- Features -->
 				<div class="rounded-xl border border-slate-200 bg-slate-50 p-6">

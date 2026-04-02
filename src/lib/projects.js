@@ -29,7 +29,7 @@ Users can also access detailed information for each airstrip including runway di
 			'Email notifications and social features',
 			'VFR sectional charts and satellite views per airstrip'
 		],
-		tags: ['Laravel 8.x', 'MySQL', 'Bing Maps API', 'Stripe', 'PayPal', 'VPS'],
+		tags: ['Laravel 9.x', 'MySQL', 'Bing Maps API', 'Stripe', 'PayPal', 'VPS-hosted'],
 		images: [
 			{ src: '/images/user_reports.jpg', alt: 'UBCP airstrip report' },
 			{ src: '/images/airstrip_map.jpg', alt: 'UBCP airstrip map' },
@@ -39,8 +39,9 @@ Users can also access detailed information for each airstrip including runway di
 	{
 		slug: 'searchfor-us',
 		name: 'SearchFor.us',
-		url: 'https://searchfor.us',
+		url: null,
 		displayUrl: 'searchfor.us',
+		domainExpired: true,
 		heroImage: '/images/home_page.jpg',
 		heroAlt: 'Home Page of SearchFor.us',
 		summary:
@@ -71,8 +72,9 @@ Bing Maps has native support for overlaying GPX and XML files directly onto a ma
 	{
 		slug: 'crowdfund-congress',
 		name: 'Crowdfund Congress',
-		url: 'https://crowdfundcongress.com',
+		url: null,
 		displayUrl: 'crowdfundcongress.com',
+		domainExpired: true,
 		heroImage: '/images/home_page-1.jpg',
 		heroAlt: 'Home Page of CrowdfundCongress.com',
 		summary:
@@ -94,5 +96,37 @@ The platform handled email notifications to keep donors updated when new campaig
 		images: [
 			{ src: '/images/issue_details-1.jpg', alt: 'Issue details page' }
 		]
+	},
+	{
+		slug: 'weber-fridge',
+		name: 'Weber Fridge',
+		url: 'https://weberfridge.org',
+		displayUrl: 'weberfridge.org',
+		heroImage: '/images/weber_fridge_homepage.png',
+		heroAlt: 'Weber Fridge — Free Food, No Stigma',
+		summary:
+			'A community website for a mutual-aid refrigerator in Ogden, Utah — open 24/7, no questions asked. Built to help neighbors find the fridge, get involved, and stay connected to community events.',
+		description: `Weber Fridge is a community-run, always-open refrigerator and pantry located at 301 E 28th Street in Ogden, Utah. The model is simple: take what you need, leave what you can. No applications, no eligibility requirements, no means testing. Access to food is a basic human right — not something anyone should have to earn or feel ashamed about.
+
+The site serves as the public face of the fridge: telling visitors where to find it, how to donate or volunteer, and what events are coming up. Community events include free soup-and-sandwich days, pancake breakfasts, and really-really-free markets — all open to everyone, always.
+
+The fridge is hosted by community partner Urban Prairie Agriculture, kept stocked with fresh locally grown produce year-round. Additional partners include Lost Texan BBQ and USARA Ogden (Utah Support Advocates for Recovery Awareness).
+
+Volunteer coordination runs through a Signal group chat, keeping things lightweight and accessible for the people who make the fridge run.`,
+		stats: [
+			{ value: '24/7', label: 'Always Open' },
+			{ value: '301', label: 'E 28th St, Ogden' },
+			{ value: '3+', label: 'Community Partners' },
+			{ value: '0', label: 'Questions Asked' }
+		],
+		features: [
+			'Events calendar for community meals and free markets',
+			'Get Involved page for volunteers and food donors',
+			'Supporters directory showcasing community partners',
+			'Embedded map and address for easy fridge access',
+			'Donation flow for financial contributions'
+		],
+		tags: ['SvelteKit 5', 'Vercel', 'CloudFlare', 'MailGun API'],
+		images: []
 	}
 ];
