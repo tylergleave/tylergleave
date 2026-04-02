@@ -1,6 +1,5 @@
 <script>
 	import './layout.css';
-	import favicon from '$lib/assets/favicon.svg';
 
 	let { children } = $props();
 
@@ -14,7 +13,9 @@
 </script>
 
 <svelte:head>
-	<link rel="icon" href={favicon} />
+	<link rel="icon" href="/favicon.ico" sizes="any" />
+	<link rel="icon" href="/favicon.png" type="image/png" />
+	<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 	<title>Tyler Gleave — Senior Web Developer</title>
 	<meta name="description" content="Senior web developer from Ogden, Utah. PHP, Laravel, Python, and more." />
 	<link rel="preconnect" href="https://fonts.googleapis.com" />
