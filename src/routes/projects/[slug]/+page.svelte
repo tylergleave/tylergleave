@@ -11,11 +11,11 @@
 </svelte:head>
 
 <!-- Back nav -->
-<div class="border-b border-slate-200 bg-white px-6 py-4">
+<div class="border-b border-slate-200 bg-white px-6 py-4 dark:border-slate-700 dark:bg-slate-900">
 	<div class="mx-auto max-w-5xl">
 		<a
 			href="/#projects"
-			class="inline-flex items-center gap-2 text-sm font-medium text-slate-500 hover:text-slate-900 transition-colors"
+			class="inline-flex items-center gap-2 text-sm font-medium text-slate-500 transition-colors hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-100"
 		>
 			<svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 				<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
@@ -30,13 +30,13 @@
 
 		<!-- Header -->
 		<div class="mb-10">
-			<h1 class="mb-3 text-4xl font-bold tracking-tight text-slate-900">{project.name}</h1>
+			<h1 class="mb-3 text-4xl font-bold tracking-tight text-slate-900 dark:text-slate-100">{project.name}</h1>
 			{#if project.url}
 				<a
 					href={project.url}
 					target="_blank"
 					rel="noopener noreferrer"
-					class="inline-flex items-center gap-1.5 text-sm text-slate-500 hover:text-slate-800 transition-colors"
+					class="inline-flex items-center gap-1.5 text-sm text-slate-500 transition-colors hover:text-slate-800 dark:text-slate-400 dark:hover:text-slate-200"
 				>
 					<svg class="h-3.5 w-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
@@ -44,7 +44,7 @@
 					{project.displayUrl}
 				</a>
 			{:else}
-				<span class="inline-flex items-center gap-1.5 text-sm text-slate-400">
+				<span class="inline-flex items-center gap-1.5 text-sm text-slate-400 dark:text-slate-500">
 					<svg class="h-3.5 w-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636" />
 					</svg>
@@ -54,7 +54,7 @@
 		</div>
 
 		<!-- Hero image -->
-		<div class="mb-12 overflow-hidden rounded-2xl border border-slate-200 bg-slate-100 shadow-sm">
+		<div class="mb-12 overflow-hidden rounded-2xl border border-slate-200 bg-slate-100 shadow-sm dark:border-slate-700 dark:bg-slate-800">
 			<img
 				src={project.heroImage}
 				alt={project.heroAlt}
@@ -72,9 +72,9 @@
 				{#if project.stats.length > 0}
 					<div class="mb-10 grid grid-cols-2 gap-4 sm:grid-cols-4">
 						{#each project.stats as stat}
-							<div class="rounded-xl border border-slate-200 bg-slate-50 p-5 text-center">
-								<p class="text-2xl font-bold text-slate-900">{stat.value}</p>
-								<p class="mt-1 text-xs text-slate-500">{stat.label}</p>
+							<div class="rounded-xl border border-slate-200 bg-slate-50 p-5 text-center dark:border-slate-700 dark:bg-slate-800">
+								<p class="text-2xl font-bold text-slate-900 dark:text-slate-100">{stat.value}</p>
+								<p class="mt-1 text-xs text-slate-500 dark:text-slate-400">{stat.label}</p>
 							</div>
 						{/each}
 					</div>
@@ -82,10 +82,10 @@
 
 				<!-- Description -->
 				<div class="mb-10">
-					<h2 class="mb-4 text-xl font-semibold text-slate-900">About This Project</h2>
+					<h2 class="mb-4 text-xl font-semibold text-slate-900 dark:text-slate-100">About This Project</h2>
 					<div class="space-y-4">
 						{#each project.description.trim().split('\n\n') as paragraph}
-							<p class="text-base leading-relaxed text-slate-600">{paragraph}</p>
+							<p class="text-base leading-relaxed text-slate-600 dark:text-slate-400">{paragraph}</p>
 						{/each}
 					</div>
 				</div>
@@ -93,10 +93,10 @@
 				<!-- Screenshot gallery -->
 				{#if project.images.length > 0}
 					<div>
-						<h2 class="mb-4 text-xl font-semibold text-slate-900">Screenshots</h2>
+						<h2 class="mb-4 text-xl font-semibold text-slate-900 dark:text-slate-100">Screenshots</h2>
 
 						<!-- Main image -->
-						<div class="mb-3 overflow-hidden rounded-xl border border-slate-200 bg-slate-100">
+						<div class="mb-3 overflow-hidden rounded-xl border border-slate-200 bg-slate-100 dark:border-slate-700 dark:bg-slate-800">
 							<img
 								src={project.images[activeImageIndex].src}
 								alt={project.images[activeImageIndex].alt}
@@ -104,7 +104,7 @@
 								style="max-height: 400px;"
 							/>
 						</div>
-						<p class="mb-3 text-center text-sm text-slate-400 italic">
+						<p class="mb-3 text-center text-sm italic text-slate-400 dark:text-slate-500">
 							{project.images[activeImageIndex].alt}
 						</p>
 
@@ -115,16 +115,11 @@
 									<button
 										onclick={() => (activeImageIndex = idx)}
 										class="overflow-hidden rounded-lg border-2 transition-all {activeImageIndex === idx
-											? 'border-slate-700 opacity-100'
+											? 'border-slate-700 opacity-100 dark:border-slate-300'
 											: 'border-transparent opacity-50 hover:opacity-80'}"
 										aria-label="View: {img.alt}"
 									>
-										<img
-											src={img.src}
-											alt={img.alt}
-											class="h-16 w-28 object-cover object-top"
-											loading="lazy"
-										/>
+										<img src={img.src} alt={img.alt} class="h-16 w-28 object-cover object-top" loading="lazy" />
 									</button>
 								{/each}
 							</div>
@@ -142,7 +137,7 @@
 						href={project.url}
 						target="_blank"
 						rel="noopener noreferrer"
-						class="flex items-center justify-center gap-2 rounded-xl bg-slate-900 px-6 py-3.5 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-slate-700"
+						class="flex items-center justify-center gap-2 rounded-xl bg-slate-900 px-6 py-3.5 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-slate-700 dark:bg-slate-100 dark:text-slate-900 dark:hover:bg-white"
 					>
 						Visit {project.displayUrl}
 						<svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -150,32 +145,22 @@
 						</svg>
 					</a>
 				{:else}
-					<div class="rounded-xl border border-slate-200 bg-slate-50 px-6 py-4 text-center">
-						<p class="text-sm font-medium text-slate-500">Domain expired</p>
-						<p class="mt-1 text-xs text-slate-400">{project.displayUrl} is no longer active</p>
+					<div class="rounded-xl border border-slate-200 bg-slate-50 px-6 py-4 text-center dark:border-slate-700 dark:bg-slate-800">
+						<p class="text-sm font-medium text-slate-500 dark:text-slate-400">Domain expired</p>
+						<p class="mt-1 text-xs text-slate-400 dark:text-slate-500">{project.displayUrl} is no longer active</p>
 					</div>
 				{/if}
 
 				<!-- Features -->
-				<div class="rounded-xl border border-slate-200 bg-slate-50 p-6">
-					<h3 class="mb-4 text-sm font-semibold uppercase tracking-widest text-slate-400">
+				<div class="rounded-xl border border-slate-200 bg-slate-50 p-6 dark:border-slate-700 dark:bg-slate-800">
+					<h3 class="mb-4 text-sm font-semibold uppercase tracking-widest text-slate-400 dark:text-slate-500">
 						Features
 					</h3>
 					<ul class="space-y-2.5">
 						{#each project.features as feature}
-							<li class="flex items-start gap-2.5 text-sm text-slate-600">
-								<svg
-									class="mt-0.5 h-4 w-4 shrink-0 text-slate-400"
-									fill="none"
-									stroke="currentColor"
-									viewBox="0 0 24 24"
-								>
-									<path
-										stroke-linecap="round"
-										stroke-linejoin="round"
-										stroke-width="2"
-										d="M5 13l4 4L19 7"
-									/>
+							<li class="flex items-start gap-2.5 text-sm text-slate-600 dark:text-slate-400">
+								<svg class="mt-0.5 h-4 w-4 shrink-0 text-slate-400 dark:text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
 								</svg>
 								{feature}
 							</li>
@@ -184,15 +169,13 @@
 				</div>
 
 				<!-- Built with -->
-				<div class="rounded-xl border border-slate-200 bg-slate-50 p-6">
-					<h3 class="mb-4 text-sm font-semibold uppercase tracking-widest text-slate-400">
+				<div class="rounded-xl border border-slate-200 bg-slate-50 p-6 dark:border-slate-700 dark:bg-slate-800">
+					<h3 class="mb-4 text-sm font-semibold uppercase tracking-widest text-slate-400 dark:text-slate-500">
 						Built With
 					</h3>
 					<div class="flex flex-wrap gap-2">
 						{#each project.tags as tag}
-							<span
-								class="rounded-full bg-white border border-slate-200 px-3 py-1 text-xs font-medium text-slate-700 shadow-sm"
-							>
+							<span class="rounded-full border border-slate-200 bg-white px-3 py-1 text-xs font-medium text-slate-700 shadow-sm dark:border-slate-600 dark:bg-slate-700 dark:text-slate-300">
 								{tag}
 							</span>
 						{/each}
