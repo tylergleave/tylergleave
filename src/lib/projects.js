@@ -29,7 +29,7 @@ Users can also access detailed information for each airstrip including runway di
 			'Email notifications and social features',
 			'VFR sectional charts and satellite views per airstrip'
 		],
-		tags: ['Laravel 9.x', 'MySQL', 'Google Maps API', 'Stripe', 'PayPal', 'VPS-hosted'],
+		tags: ['Built before vibe-coding existed', 'Laravel 9.x', 'MySQL', 'Google Maps API', 'Stripe', 'PayPal', 'VPS-hosted'],
 		images: [
 			{ src: '/images/user_reports.jpg', alt: 'UBCP airstrip report' },
 			{ src: '/images/airstrip_map.jpg', alt: 'UBCP airstrip map' },
